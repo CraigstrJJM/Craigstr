@@ -16,8 +16,11 @@
   <%=t.submit%>
 <%end%>
 
+
 <%@locations.each do |location|%>
-  <%=link_to location %>
+  <div>
+  <%=link_to "#{location.name}", location %>
+  </div>
 <%end%>
 
 
