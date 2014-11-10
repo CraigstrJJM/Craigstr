@@ -1,0 +1,29 @@
+<h1> Admin Dashboard Page </h1>
+
+<p> welcome <%=@user.email%> </p>
+
+
+<p> Add Locations<p>
+
+<%=form_for @location do |t|%>
+  <div>
+  <%=t.label :name%>
+  <%=t.text_field :name%>
+  </div>
+  <div>
+  <%=t.label :state%>
+  <%=t.text_field :state%>
+  </div>
+  <div>
+  <%=t.submit%>
+<%end%>
+
+<%@locations.each do |location|%>
+  <%=link_to location %>
+<%end%>
+
+
+
+
+
+

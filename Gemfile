@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'bcrypt', '~> 3.1.7'
 gem 'capistrano-rails', group: :development
 gem 'coffee-rails', '~> 4.0.0'
+
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'monban'
