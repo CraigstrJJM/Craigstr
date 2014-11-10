@@ -10,8 +10,5 @@ class DashboardsController < ApplicationController
   end
 
   def admin
-    
   end
-
-
 end
