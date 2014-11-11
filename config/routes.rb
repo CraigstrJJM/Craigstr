@@ -2,9 +2,7 @@ require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
 
 Rails.application.routes.draw do
-  root "users#new"
 
-  
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
   end

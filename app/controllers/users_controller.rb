@@ -19,14 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-<<<<<<< HEAD
-    params.require(:user).permit(:name, 
-      :email, :password)
-  end
-end
-=======
     params.require(:user).permit(:email, :password)
   end
 end
-
->>>>>>> redid monban, created admin column in users table, created admin dashboard view
