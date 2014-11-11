@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20141111145612) do
   end
 
   create_table "posts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.integer  "category_id"
+    t.string   "content"
+    t.boolean  "spam"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,59 +1,58 @@
-class PostController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  def index
-    @posts = post.all
-  end
-
-  def show
-  end
+class PostsController < ApplicationController
 
   def new
-    @post = post.new
-  end
-
-  def edit
+    @category = find_category
+    @post = @category.posts.new
   end
 
   def create
-    @post = post.new(post_params)
+    @category = find_category
+    @post = @category.posts.new(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: "post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render :json @post.errors }
-      end
+    if @post.save
+      redirect_to @category
+    else
+      render :new
     end
   end
 
+  def show
+    @category = find_category
+    @post = @category.posts.find(params[:id])
+  end
+
+  def edit
+    @category = find_category
+    @post = @category.posts.find(params[:id])
+  end
+
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: "post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors }
-      end
+    @category = find_category
+    @post = @category.posts.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to [@category, @post]
+    else
+      render :edit
     end
   end
 
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: "post was successfully destroyed." }
-      format.json { }
-    end
+    category = find_category
+    post = category.posts.find(params[:id])
+    post.destroy
+
+    redirect_to category
   end
+
 
   private
-    def set_post
-      @post = post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:title, :description, :price, :category_id, :user_id, :region_id)
-    end
+  def post_params
+    params.require(:post).permit(:category_id, :location_id, :user_id, :content)
   end
+
+  def find_category
+    category.find(params[:category_id])
+  end
+end

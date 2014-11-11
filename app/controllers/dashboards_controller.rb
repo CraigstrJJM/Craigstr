@@ -1,8 +1,10 @@
+
 class DashboardsController < ApplicationController
   def show
   @user=current_user
   @locations = Location.all
   @location=Location.new
+  @post=Post.new
     if @user.admin
       render :admin
     end

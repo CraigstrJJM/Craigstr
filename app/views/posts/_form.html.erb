@@ -1,28 +1,20 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post do |f| %>
   <div class="form_post">
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form_post' %>
+    <%= f.text_field :title%>
   </div>
   <div class="form_post">
   <%= f.label :category %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, {
-      include_blank: "Please select..." }, { class: 'form-control' } %>
+  <%= f.text_field :category %>
+  
 </div>
 <div class="form_post">
-  <%= f.label :category %>
-  <%= f.collection_select :region_id, Region.all, :id, :name, {
-      include_blank: "Please select..." }, { class: 'form-control' } %>
+  <%= f.label :location %>
+  <%= f.text_field :location%>
 </div>
   <div class="form_post">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
+    <%= f.label :content %>
+    <%= f.text_area :content%>
   </div>
-  <div class="form_post">
-    <%= f.label :price %>
-    <div class="get_info">
-      <%= f.number_field :price, class: 'form-control', step: 'any', min: 0 %>
-    </div>
-  </div>
-  <%= f.submit class: 'btn btn-primary' %>
-  <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+  <%= f.submit %>
 <% end %>

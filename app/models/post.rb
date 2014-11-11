@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true
-  validates :description, presence: true
-  belongs_to :category, :region, :user
+  
+  belongs_to :category
+  belongs_to :location
+  belongs_to :user
   
 end
