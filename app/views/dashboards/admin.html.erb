@@ -1,23 +1,45 @@
 <h1> Admin Dashboard Page </h1>
-<p> welcome <%=@user.email%> </p>
+<p> Welcome <%=@user.email%>! </p>
 
-<p> Add Locations<p>
+<hr>
 
-<%=form_for @location do |t|%>
-  <div>
-  <%=t.label :name%>
-  <%=t.text_field :name%>
-  </div>
-  <div>
-  <%=t.label :state%>
-  <%=t.text_field :state%>
-  </div>
-  <div>
-  <%=t.submit%>
-<%end%>
+<section>
+  <h3>Current Locations</h3>
+  <ol>
+    <%@locations.each do |location|%>
+      <li>
+        <%=link_to "#{location.name}", location_path(location) %>
+      </li>
+    <%end%>
+  </ol>
 
-<%@locations.each do |location|%>
-  <div>
-  <%=link_to "#{location.name}", location %>
-  </div>
-<%end%>
+  <h3>Add Location</h3>
+
+  <%=form_for @location do |t|%>
+    <div>
+      <%=t.label :name, "City:  "%>
+      <%=t.text_field :name%>
+    </div>
+    <div>
+      <%=t.label :state, "State: "%>
+      <%=t.text_field :state%>
+      <%=t.submit%>
+    </div>
+    <%end%>
+</section>
+
+<hr>
+
+<section>
+  <h3>Current Categories</h3>
+  <ol>
+    <%= render @categories %>
+  </ol>
+  
+  <h3>Add Category</h3>
+  <%= form_for @category do |form| %>
+    <%= form.label :name, "Category Name: " %>
+    <%= form.text_field :name %>
+    <%= form.submit %>
+  <% end %>
+</section>

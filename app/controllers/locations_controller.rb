@@ -4,6 +4,13 @@ class LocationsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @location = Location.find(params[:id])
+    @categories = Category.all
+  end
+
+  private
+
   def location_params
     params.require(:location).permit(:name, :state)
   end

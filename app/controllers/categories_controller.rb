@@ -6,10 +6,14 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @locations = Location.all
+    @location = Location.new
+    @categories = Category.all
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to categories_path
+      render "dashboards/admin"
     else
       redirect_to :back
     end
