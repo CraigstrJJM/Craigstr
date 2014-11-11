@@ -5,11 +5,3 @@
     <%= render @categories %>
   </ol>
 </section>
-
-<section>
-  <%= form_for @category do |form| %>
-    <%= form.label :name, "Category Name: " %>
-    <%= form.text_field :name %>
-    <%= form.submit %>
-  <% end %>
-</section>

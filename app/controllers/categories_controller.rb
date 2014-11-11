@@ -2,17 +2,17 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @category = Category.new
   end
 
   def create
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to categories_path
+      flash[:notice] = "Category saved successfully"
     else
-      redirect_to :back
+      flash[:error] = "Category did not save"
     end
+    redirect_to :back
   end
 
   private
