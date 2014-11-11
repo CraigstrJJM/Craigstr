@@ -40,6 +40,7 @@ class PostsController < ApplicationController
     redirect_to category
   end
 
+
   private
 
   def post_params

@@ -45,3 +45,9 @@
     <%= form.submit %>
   <% end %>
 </section>
+
+<%@locations.each do |location|%>
+  <div>
+  <%=link_to "#{location.name}", location %>
+  </div>
+<%end%>
