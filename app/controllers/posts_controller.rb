@@ -51,8 +51,8 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:category_id, :location_id, :user_id, :content)
   end
-
+  
   def find_category
-    category.find(params[:category_id])
+    Category.find(params[:category_id])
   end
 end
