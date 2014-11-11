@@ -1,0 +1,28 @@
+<%= form_for(@post) do |f| %>
+  <div class="form_post">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form_post' %>
+  </div>
+  <div class="form_post">
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, {
+      include_blank: "Please select..." }, { class: 'form-control' } %>
+</div>
+<div class="form_post">
+  <%= f.label :category %>
+  <%= f.collection_select :region_id, Region.all, :id, :name, {
+      include_blank: "Please select..." }, { class: 'form-control' } %>
+</div>
+  <div class="form_post">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="form_post">
+    <%= f.label :price %>
+    <div class="get_info">
+      <%= f.number_field :price, class: 'form-control', step: 'any', min: 0 %>
+    </div>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+<% end %>

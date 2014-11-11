@@ -1,0 +1,41 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<% if @post.price %>
+  <p>
+    <strong>Price:</strong>
+    <%= number_to_currency(@post.price) %>
+  </p>
+  <p>
+  <strong>Category:</strong>
+  <% if @post.category %>
+    <%= link_to @post.category.name, @post.category %>
+  <% else %>
+    none
+  <% end %>
+</p>
+  <strong>Region:</strong>
+  <% if @post.region %>
+    <%= link_to @post.region.name, @post.region %>
+  <% else %>
+    none
+  <% end %>
+</p>
+  <strong>User:</strong>
+  <% if @post.user %>
+    <%= link_to @post.user.name, @post.user %>
+  <% else %>
+    none
+  <% end %>
+</p>
+<% end %>
+
+<%= link_to "Edit", edit_post_path(@post), class: "btn btn-default" %>
+<%= link_to "Destroy", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
