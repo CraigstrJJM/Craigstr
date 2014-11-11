@@ -1,12 +1,12 @@
 <h1> Admin Dashboard Page </h1>
-<p> Welcome <%=@user.email%>! </p>
+<p> Welcome <%=@dashboard.user.email%>! </p>
 
 <hr>
 
 <section>
   <h3>Current Locations</h3>
   <ol>
-    <%@locations.each do |location|%>
+    <%@dashboard.locations.each do |location|%>
       <li>
         <%=link_to "#{location.name}", location_path(location) %>
       </li>
@@ -15,7 +15,7 @@
 
   <h3>Add Location</h3>
 
-  <%=form_for @location do |t|%>
+  <%=form_for @dashboard.location do |t|%>
     <div>
       <%=t.label :name, "City:  "%>
       <%=t.text_field :name%>
@@ -33,11 +33,11 @@
 <section>
   <h3>Current Categories</h3>
   <ol>
-    <%= render @categories %>
+    <%= render @dashboard.categories %>
   </ol>
   
   <h3>Add Category</h3>
-  <%= form_for @category do |form| %>
+  <%= form_for @dashboard.category do |form| %>
     <%= form.label :name, "Category Name: " %>
     <%= form.text_field :name %>
     <%= form.submit %>

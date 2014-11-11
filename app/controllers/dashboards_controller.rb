@@ -1,12 +1,8 @@
 class DashboardsController < ApplicationController
   def show
-    @user = current_user
-    @locations = Location.all
-    @location = Location.new
-    @categories = Category.all
-    @category = Category.new
+    @dashboard = Dashboard.new(current_user)
 
-    if @user.admin
+    if @dashboard.user.admin
       render :admin
     end
   end

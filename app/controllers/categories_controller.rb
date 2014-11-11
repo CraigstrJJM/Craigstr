@@ -1,18 +1,13 @@
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
-    @category = Category.new
+    @dashboard = Dashboard.new(current_user)
   end
 
   def create
-    @user = current_user
-    @locations = Location.all
-    @location = Location.new
-    @categories = Category.all
-    @category = Category.new(category_params)
+    @dashboard = Dashboard.new(current_user)
 
-    if @category.save
+    if @dashboard.category(category_params).save
       render "dashboards/admin"
     else
       redirect_to :back
