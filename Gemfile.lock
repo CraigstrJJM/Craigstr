@@ -68,11 +68,6 @@ GEM
       bcrypt
       rails
       warden
-<<<<<<< HEAD
-=======
-    monban-generators (0.0.4)
-      monban (>= 0.0.12)
->>>>>>> redid monban, created admin column in users table, created admin dashboard view
     multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -132,13 +127,10 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-<<<<<<< HEAD
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-=======
->>>>>>> redid monban, created admin column in users table, created admin dashboard view
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -152,10 +144,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   monban
-<<<<<<< HEAD
-=======
-  monban-generators
->>>>>>> redid monban, created admin column in users table, created admin dashboard view
   pg
   rails (= 4.1.6)
   sass-rails (~> 4.0.3)
