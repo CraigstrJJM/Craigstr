@@ -1,7 +1,7 @@
 class Dashboard
   attr_reader :categories, :locations, :user
 
-  def initialize(user, locations=Location.all, categories=Category.all)
+  def initialize(user, locations = Location.all, categories = Category.all)
     @locations = locations
     @categories = categories
     @user = user
@@ -13,5 +13,9 @@ class Dashboard
 
   def category(*args)
     Category.new(*args)
+  end
+
+  def user_email
+    @user.email
   end
 end

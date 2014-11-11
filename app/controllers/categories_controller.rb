@@ -1,17 +1,18 @@
 class CategoriesController < ApplicationController
 
   def index
-    @dashboard = Dashboard.new(current_user)
+    @categories = Category.all
   end
 
   def create
-    @dashboard = Dashboard.new(current_user)
+    @category = Category.new(category_params)
 
-    if @dashboard.category(category_params).save
-      render "dashboards/admin"
+    if @category.save
+      flash[:notice] = "Category saved successfully"
     else
-      redirect_to :back
+      flash[:error] = "Category did not save"
     end
+    redirect_to :back
   end
 
   private
