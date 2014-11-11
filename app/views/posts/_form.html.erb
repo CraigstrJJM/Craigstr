@@ -1,0 +1,23 @@
+<%= form_for @post do |f| %>
+  <div class="form_post">
+    <%= f.label :title %>
+    <%= f.text_field :title%>
+  </div>
+  <div class="form_post">
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+  
+</div>
+<div class="form_post">
+  <%= f.label :location %>
+  <%= f.text_field :location%>
+</div>
+  <div class="form_post">
+    <%= f.label :content %>
+    <%= f.text_area :content%>
+  </div>
+  <div>
+<%= select_tag "", options_for_select(["a", "b", "c", "d", "e"]),
+    {:multiple => true}%></div>
+  <%= f.submit %>
+<% end %>
