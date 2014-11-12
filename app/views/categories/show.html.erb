@@ -3,6 +3,8 @@
 <hr>
 
 <section>
-  <%= link_to "Create New Post", :controller => "posts", :action => "new", :post => {:category_id => params[:id], :location_id => params[:location_id]} %>
+  <%= link_to "Create New Post",
+    :controller => "posts",
+    :action => "new",
+    :post => {:category_id => params[:id], :location_id => params[:location_id]} %>
 </section>
-

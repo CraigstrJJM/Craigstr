@@ -34,8 +34,7 @@ ActiveRecord::Schema.define(version: 20141111145612) do
     t.integer  "location_id"
     t.integer  "category_id"
     t.string   "content"
-    t.boolean  "spam"
-    t.string   "title"
+    t.string   "title",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
