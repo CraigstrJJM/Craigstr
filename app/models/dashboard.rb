@@ -18,4 +18,8 @@ class Dashboard
   def user_email
     @user.email
   end
+
+  def categories_names
+    @categories.map{|category| category.name}
+  end
 end

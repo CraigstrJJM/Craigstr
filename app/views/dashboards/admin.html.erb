@@ -33,7 +33,9 @@
 <section>
   <h3>Current Categories</h3>
   <ol>
-    <%= render @dashboard.categories %>
+    <%@dashboard.categories_names.each do |name| %>
+      <li><%=name%></li>
+    <%end%>
   </ol>
   
   <h3>Add Category</h3>
