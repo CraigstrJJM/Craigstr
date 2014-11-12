@@ -4,14 +4,7 @@
 <hr>
 
 <section>
-  <h3>Current Locations</h3>
-  <ol>
-    <%@dashboard.locations.each do |location|%>
-      <li>
-        <%=link_to "#{location.name}", location_path(location) %>
-      </li>
-    <%end%>
-  </ol>
+<%=link_to 'Locations' %>
 
   <h3>Add Location</h3>
 

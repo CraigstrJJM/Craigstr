@@ -63,7 +63,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
-    minitest (5.4.2)
+    minitest (5.4.3)
     monban (0.1.1)
       bcrypt
       rails
@@ -146,6 +146,7 @@ DEPENDENCIES
   monban
   pg
   rails (= 4.1.6)
+  rake
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   turbolinks
