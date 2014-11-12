@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20141111145612) do
     t.integer  "category_id", null: false
     t.string   "content",     null: false
     t.string   "title",       null: false
-
     t.datetime "created_at"
     t.datetime "updated_at"
   end
