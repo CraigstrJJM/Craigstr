@@ -5,8 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.references :location
       t.references :category
       t.string :content
-      t.boolean :spam
-      t.string :title
+      t.string :title, null: false
       t.timestamps
     end
   end

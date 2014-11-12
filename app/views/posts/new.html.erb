@@ -2,17 +2,18 @@
 
 <section>
   <h3>Add New Post</h3>
+
   <%= form_for @post do |f| %>
     <div class="form_post">
       <%= f.label :title %>
       <%= f.text_field :title%>
     </div>
+
     <div class="form_post">
       <%= f.hidden_field :category_id, :value => params[:post][:category_id] %>
-    </div>
-    <div class="form_post">
       <%= f.hidden_field :location_id, :value => params[:post][:location_id] %>
     </div>
+
     <div class="form_post">
       <%= f.label :content %>
       <%= f.text_area :content%>
