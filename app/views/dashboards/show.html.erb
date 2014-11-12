@@ -1,8 +1,8 @@
 <h1> Dashboards page </h1>
-<p> Welcome <%=@user.email%><p>
+<p> Welcome <%= @user.email %><p>
 
 <p> this page should show whatever someone logged in can see </p>
 
-<p> Admin? <%=@user.admin%></p>
+<p> Admin? <%= @user.admin %></p>
 
-<%=render 'posts/form' %>
+<%= render 'posts/form' %>
