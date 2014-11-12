@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = @category.posts.new(post_params)
 
     if @post.save
-      redirect_to @category
+      render :show
     else
       render :new
     end
@@ -49,10 +49,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:category_id, :location_id, :user_id, :content)
+    params.require(:post).permit(:title, :category_id, :location_id, :content).merge(user: current_user)
   end
   
   def find_category
-    Category.find(params[:category_id])
+    Category.find(params[:post][:category_id])
   end
 end
