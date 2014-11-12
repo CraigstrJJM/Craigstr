@@ -18,5 +18,9 @@
     <%= f.label :content %>
     <%= f.text_area :content%>
   </div>
+
+  <div>
+    <%= select_tag "", options_for_select(["a", "b", "c", "d", "e"]),
+      {:multiple => true}%></div>
   <%= f.submit %>
 <% end %>
