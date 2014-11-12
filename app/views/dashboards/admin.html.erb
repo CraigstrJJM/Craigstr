@@ -1,4 +1,4 @@
-<<h1> Admin Dashboard Page </h1>
+<h1> Admin Dashboard Page </h1>
 <p> Welcome <%=@dashboard.user_email%>! </p>
 
 <hr>
@@ -30,7 +30,7 @@
       <li><%=name%></li>
     <%end%>
   </ol>
-  
+
   <h3>Add Category</h3>
   <%= form_for @dashboard.category do |form| %>
     <%= form.label :name, "Category Name: " %>
