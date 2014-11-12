@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :categories, only: [:index, :create, :show]
   resources :posts, only: [:index, :new, :create, :destroy, :show]
-
 end
