@@ -14,9 +14,9 @@ class CategoriesController < ApplicationController
     end
     redirect_to :back
   end
-  
+
   def show
-    @category= Category.find(params[:id])
+    @category = Category.find(params[:id])
     @post = Post.new
   end
   private

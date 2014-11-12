@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def new
     @category = find_category
     @post = @category.posts.new
@@ -45,13 +44,12 @@ class PostsController < ApplicationController
     redirect_to category
   end
 
-
   private
 
   def post_params
     params.require(:post).permit(:title, :category_id, :location_id, :content).merge(user: current_user)
   end
-  
+
   def find_category
     Category.find(params[:post][:category_id])
   end
