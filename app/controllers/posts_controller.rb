@@ -52,3 +52,4 @@ class PostsController < ApplicationController
       :title,
     ).merge(user: current_user)
   end
+end
