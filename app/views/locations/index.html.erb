@@ -1,6 +1,6 @@
   <h1> Locations index</h1>
   <ol>
-    <%@locations.each do |location|%>
+    <%@dashboard.locations.each do |location|%>
       <li>
         <%=link_to "#{location.name}", location_path(location) %>
       </li>
