@@ -6,12 +6,18 @@ Rails.application.routes.draw do
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
   end
+
   constraints Monban::Constraints::SignedOut.new do
     root "landings#show"
   end
-  resources :locations, only: [:create, :show]
+
+  resources :categories, only: [:create]
+
+  resources :locations, only: [:create, :show, :index] do
+    resources :categories, only: [:show]
+  end
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
-  resources :categories, only: [:index, :create, :show]
-
+  resources :posts, only: [:edit, :index, :new, :create, :destroy, :show]
 end

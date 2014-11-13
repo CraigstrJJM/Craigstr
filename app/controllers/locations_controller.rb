@@ -9,6 +9,10 @@ class LocationsController < ApplicationController
     @categories = Category.all
   end
 
+  def index
+    @locations = Location.all
+  end
+
   private
 
   def location_params

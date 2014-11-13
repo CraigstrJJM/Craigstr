@@ -1,17 +1,10 @@
-<h1> Admin Dashboard Page </h1>
+<<h1> Admin Dashboard Page </h1>
 <p> Welcome <%=@dashboard.user_email%>! </p>
 
 <hr>
 
 <section>
-  <h3>Current Locations</h3>
-  <ol>
-    <%@dashboard.locations.each do |location|%>
-      <li>
-        <%=link_to "#{location.name}", location_path(location) %>
-      </li>
-    <%end%>
-  </ol>
+<%=link_to 'Locations' %>
 
   <h3>Add Location</h3>
 
@@ -33,7 +26,9 @@
 <section>
   <h3>Current Categories</h3>
   <ol>
-    <%= render @dashboard.categories %>
+    <%@dashboard.categories_names.each do |name| %>
+      <li><%=name%></li>
+    <%end%>
   </ol>
   
   <h3>Add Category</h3>
