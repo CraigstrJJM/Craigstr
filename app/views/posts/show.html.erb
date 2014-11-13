@@ -1,27 +1,29 @@
-<p>
+<div>
   <strong>Title:</strong>
   <%= @post.title %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Description:</strong>
   <%= @post.content %>
-</p>
+</div>
 
 <div>
   <strong>Category:</strong>
-  <%# <%= link_to @post.category.name, @post.category %>
+  <%= @post.category.name %>
 </div>
 
 <div>
   <strong>Location:</strong>
-  <%# <%= link_to @post.location.name, @post.location %>
+  <%= @post.location.name %>
 </div>
 
 <div>
   <strong>User:</strong>
-  <%# <%= link_to @post.user.name, @post.user %>
+  <%= @post.user.email %>
 </div>
 
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Destroy", @post, method: :delete, data: { confirm: "Are you sure?" } %>
+<section>
+<%= link_to "Edit Post", edit_post_path(@post) %>
+<%= link_to "Delete Post", @post, method: :delete, data: { confirm: "Are you sure?" } %>
+</section>
