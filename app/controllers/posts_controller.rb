@@ -1,14 +1,13 @@
 class PostsController < ApplicationController
   def new
-    @post = Post.new
+    @post =Post.new
+    @post.category=Category.find(params[:post][:category_id])
   end
 
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      flash[:notice] = "Post saved successfully"
-      render :show
     else
       flash[:error] = "Post did not save"
       redirect_to :back
@@ -16,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post= Post.find(params[:id])
   end
 
   def edit
@@ -25,9 +24,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
     if @post.update(post_params)
-      redirect_to [@post.category, @post]
+      redirect_to @post
     else
       render :edit
     end

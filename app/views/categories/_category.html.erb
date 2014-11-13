@@ -1,1 +1,13 @@
-<li><%=link_to category.name, [location, category]%></li>
+<li><%=link_to category.name, [@location, category]%></li>
+<ul>
+<% category.tag_list.each do |sub| %>
+  <li><%=sub%></li>
+  <%end%>
+</ul>
+    <%=form_tag "/categories/#{category.id}/tags" do%>
+    <%=hidden_field_tag :category_id, :value => category.id%>	
+    <%=label_tag :tag_list, "add subgroup: "%>
+    <%=text_field_tag :tag_list%>
+    <%=submit_tag%> 
+  <%end%>
+<hr>
