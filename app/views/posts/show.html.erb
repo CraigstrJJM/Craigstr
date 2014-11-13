@@ -1,0 +1,32 @@
+<div>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</div>
+
+<div>
+  <strong>Description:</strong>
+  <%= @post.content %>
+</div>
+
+<div>
+  <strong>Category:</strong>
+  <%= @post.category.name %>
+</div>
+
+<div>
+  <strong>Location:</strong>
+  <%= @post.location.name %>
+</div>
+
+<div>
+  <strong>User:</strong>
+  <%= @post.user.email %>
+</div>
+
+<section>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+  <%= link_to "Delete Post",
+    @post,
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+</section>

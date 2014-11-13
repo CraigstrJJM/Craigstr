@@ -1,31 +1,31 @@
 <h1> Admin Dashboard Page </h1>
-<p> Welcome <%=@dashboard.user_email%>! </p>
+<p> Welcome <%= @dashboard.user_email %>! </p>
 
 <hr>
 
 <section>
   <h3>Current Locations</h3>
   <ol>
-    <%@dashboard.locations.each do |location|%>
+    <% @dashboard.locations.each do |location| %>
       <li>
-        <%=link_to "#{location.name}", location_path(location) %>
+        <%= link_to "#{location.name}", location_path(location) %>
       </li>
-    <%end%>
+    <% end %>
   </ol>
 
   <h3>Add Location</h3>
 
-  <%=form_for @dashboard.location do |t|%>
+  <%= form_for @dashboard.location do |form|%>
     <div>
-      <%=t.label :name, "City:  "%>
-      <%=t.text_field :name%>
+      <%= form.label :name, "City:  "%>
+      <%= form.text_field :name %>
     </div>
     <div>
-      <%=t.label :state, "State: "%>
-      <%=t.text_field :state%>
-      <%=t.submit%>
+      <%= form.label :state, "State: "%>
+      <%= form.text_field :state %>
+      <%= form.submit %>
     </div>
-    <%end%>
+    <% end %>
 </section>
 
 <hr>
@@ -33,9 +33,11 @@
 <section>
   <h3>Current Categories</h3>
   <ol>
-    <%= render @dashboard.categories %>
+    <% @dashboard.categories_names.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
   </ol>
-  
+
   <h3>Add Category</h3>
   <%= form_for @dashboard.category do |form| %>
     <%= form.label :name, "Category Name: " %>

@@ -1,0 +1,10 @@
+<h2><%= @category.name %></h2>
+
+<hr>
+
+<section>
+  <%= link_to "Create New Post", new_post_path(
+    @post,
+    category_id: params[:id],
+    location_id: params[:location_id]) %>
+</section>
