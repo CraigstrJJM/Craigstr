@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:create]
 
-  resources :locations, only: [:create, :show, :index] do
+  resources :locations, only: [:index, :create, :show] do
     resources :categories, only: [:show]
   end
 
