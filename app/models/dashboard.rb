@@ -20,6 +20,6 @@ class Dashboard
   end
 
   def categories_names
-    @categories.map{|category| category.name}
+    @categories.map{ |category| category.name }
   end
 end
