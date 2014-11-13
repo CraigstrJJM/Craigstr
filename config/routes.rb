@@ -1,4 +1,3 @@
-
 require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
 
