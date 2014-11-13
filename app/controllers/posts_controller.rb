@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def new
     @post = Post.new
   end
@@ -40,7 +39,6 @@ class PostsController < ApplicationController
 
     redirect_to category
   end
-
 
   private
 
