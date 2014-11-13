@@ -1,5 +1,5 @@
 <h1><%= @location.name %></h1>
 
 <section>
-  <%= render @location.list_categories, location: @location %>
+  <%= render Category.all, location: @location %>
 </section>
