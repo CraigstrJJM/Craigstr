@@ -1,13 +1,11 @@
 class PostsController < ApplicationController
 
   def new
-    @category = find_category
-    @post = @category.posts.new
+    @post = Post.new
   end
 
   def create
-    @category = find_category
-    @post = @category.posts.new(post_params)
+    @post = Post.new(post_params)
 
     if @post.save
       render :show
@@ -17,29 +15,25 @@ class PostsController < ApplicationController
   end
 
   def show
-    @category = find_category
-    @post = @category.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
-    @category = find_category
-    @post = @category.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @category = find_category
-    @post = @category.posts.find(params[:id])
+    @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to [@category, @post]
+      redirect_to [@post.category, @post]
     else
       render :edit
     end
   end
 
   def destroy
-    category = find_category
-    post = category.posts.find(params[:id])
+    post = Post.find(params[:id])
     post.destroy
 
     redirect_to category
@@ -56,8 +50,3 @@ class PostsController < ApplicationController
       :title,
     ).merge(user: current_user)
   end
-
-  def find_category
-    Category.find(params[:post][:category_id])
-  end
-end

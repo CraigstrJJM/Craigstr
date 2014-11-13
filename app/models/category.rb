@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   has_many :posts
   validates :name, presence: true, uniqueness: true
 
-  def post(*args)
-    Post.new(*args)
+  def post
+    Post.new
   end
 end
