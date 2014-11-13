@@ -8,9 +8,11 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
+      flash[:notice] = "Post saved successfully"
       render :show
     else
-      render :new
+      flash[:error] = "Post did not save"
+      redirect_to :back
     end
   end
 
