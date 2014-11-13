@@ -3,7 +3,7 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
-  def post
+  def new_post
     Post.new
   end
 end
