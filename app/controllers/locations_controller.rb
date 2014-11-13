@@ -12,10 +12,6 @@ class LocationsController < ApplicationController
     @locations = Location.all
   end
 
-  def index
-    @locations = Location.all
-  end
-
   private
 
   def location_params
