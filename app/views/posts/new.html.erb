@@ -1,29 +1,29 @@
 <h1>New post in <%=@post.category.name%> group</h1>
+
 <section>
   <h3>Add New Post</h3>
-
-  <%= form_for @post do |f| %>
+    <%= form_for @post do |f| %>
     <div>
       <%= f.label :title %>
       <%= f.text_field :title%>
     </div>
+    
     <div>
-      <%= f.hidden_field :category_id, :value => params[:post][:category_id] %>
+      <%= f.hidden_field :category_id, :value => params[:category_id] %>
     </div>
+    
     <div>
-      <%= f.hidden_field :location_id, :value => params[:post][:location_id] %>
+      <%= f.hidden_field :location_id, :value => params[:location_id] %>
     </div>
+   
     <div>
-      <%= f.label :content %>
-      <%= f.text_area :content%>
-      <p> Subgroups </p>
-      <% @post.category.tag_list.each do |tag|%>
-        <div>      
-        <%=tag%>
-        <%= check_box_tag checked_value: tag%>
-        <div>
-      <%end%>
-      <%= f.submit %>
+      <%= f.label :content%>
+      <%= f.text_field :content%>
     </div>
-  <% end %>
+
+    <div>
+      <%=collection_check_boxes @post.id, "sub_categories", @post.category.tag_list, :to_s, :to_s%>
+    </div>
+     <%=f.submit%>
+  <%end%>
 </section>

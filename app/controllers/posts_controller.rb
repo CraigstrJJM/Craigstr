@@ -1,13 +1,19 @@
 class PostsController < ApplicationController
   def new
-    @post =Post.new
-    @post.category=Category.find(params[:post][:category_id])
+    @post = Post.new
+    @post.category=Category.find(params[:category_id])
   end
 
   def create
     @post = Post.new(post_params)
+    
+   
+    @post.tag_list.add(params[:sub_categories])
+    puts params.inspect
 
     if @post.save
+      flash[:notice] = "Post saved successfully"
+      redirect_to @post
     else
       flash[:error] = "Post did not save"
       redirect_to :back
