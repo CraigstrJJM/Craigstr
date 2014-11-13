@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @category.post
+    @category.new_post
   end
 
   private
