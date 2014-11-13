@@ -9,7 +9,6 @@ gem 'jquery-rails'
 gem 'monban'
 gem 'pg'
 gem 'rails', '4.1.6'
-gem 'rake'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'turbolinks'
