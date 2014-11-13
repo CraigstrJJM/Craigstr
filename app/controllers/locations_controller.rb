@@ -1,3 +1,4 @@
+
 class LocationsController < ApplicationController
   def create
     @location=Location.create(location_params)
@@ -7,6 +8,10 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
     @categories = Category.all
+  end
+
+  def index
+    @locations = Location.all
   end
 
   private
