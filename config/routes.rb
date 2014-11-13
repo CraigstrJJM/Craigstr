@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :locations, only: [:create, :show, :index] do
     resources :categories, only: [:show]
   end
-  
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :posts, only: [:edit, :index, :new, :create, :destroy, :show]
