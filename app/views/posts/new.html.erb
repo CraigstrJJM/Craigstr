@@ -1,23 +1,34 @@
-<h1>New post</h1>
+<h1>New post in <%=@post.category.name%> group</h1>
 
 <section>
   <h3>Add New Post</h3>
-
-  <%= form_for @post do |f| %>
-    <div class="form_post">
+    <%= form_for @post do |f| %>
+    <div>
       <%= f.label :title %>
       <%= f.text_field :title%>
     </div>
-
-    <div class="form_post">
-      <%= f.hidden_field :category_id, value: params[:category_id] %>
-      <%= f.hidden_field :location_id, value: params[:location_id] %>
+    
+    <div>
+      <%= f.hidden_field :category_id, :value => params[:category_id] %>
+    </div>
+    
+    <div>
+      <%= f.hidden_field :location_id, :value => params[:location_id] %>
+    </div>
+   
+    <div>
+      <%= f.label :content%>
+      <%= f.text_field :content%>
     </div>
 
-    <div class="form_post">
-      <%= f.label :content %>
-      <%= f.text_area :content%>
-      <%= f.submit %>
+    <div>
+      <%=collection_check_boxes @post.id, "sub_categories", @post.category.tag_list, :to_s, :to_s%>
     </div>
-  <% end %>
+
+    <div>
+    <%=f.submit%>
+    </div>
+ 
+    <%end%>
+    
 </section>

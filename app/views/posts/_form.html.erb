@@ -18,4 +18,8 @@
     <%= f.label :content %>
     <%= f.text_area :content%>
   </div>
+  <div>
+    <%=collection_check_boxes @post.id, "sub_categories", @post.category.tag_list, :to_s, :to_s%>
+  </div>
+    <%=f.submit%>
 <% end %>
