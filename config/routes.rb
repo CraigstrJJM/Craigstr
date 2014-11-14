@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :tags, only: [:create, :show, :destroy]
   end
 
-
   resources :categories, only: [:create]
 
   resources :locations, only: [:index, :create, :show] do
@@ -23,5 +22,6 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
-  resources :posts, only: [:edit, :update, :index, :new, :create, :destroy, :show]
+  resources :posts, only: 
+    [:edit, :update, :index, :new, :create, :destroy, :show]
 end

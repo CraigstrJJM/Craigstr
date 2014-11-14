@@ -1,13 +1,11 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @post.category=Category.find(params[:category_id])
+    @post.category = Category.find(params[:category_id])
   end
 
   def create
     @post = Post.new(post_params)
-    
-   
     @post.tag_list.add(params[:sub_categories])
     puts params.inspect
 
@@ -21,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post= Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
